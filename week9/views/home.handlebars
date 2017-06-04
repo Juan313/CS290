@@ -1,0 +1,42 @@
+<h1>Welcome to the workout tracking app</h1>
+
+<h2>Please enter completed exercises into the table</h2>
+<form method = "post">
+Name of the exercise: <br>
+<input type="text" name = "name"><br><br>
+Number of times the exercise was performed: <br>
+<input type="text" name = "times"><br><br>
+The weight used: <br>
+<input type="text" name = "weight"><br><br>
+The date the exercise was performed: <br>
+<input type="text" name = "date"><br><br>
+Enter 1 for lbs; 0 for kgs <br>
+<input type="text" name = "unit"><br><br>
+<input type="submit" name="Add exercise" value = "Add to table">
+</form>
+
+<h2>Here's the completed exercises so far:</h2>
+<table>
+  <tr> 
+    <th>name</th>
+    <th>times</th>
+    <th>weights</th>
+    <th>date</th>
+    <th>units: 1/0 [lbs/kgs]</th>
+    <th></th>
+    <th></th>
+  </tr>
+{{#each list}}
+  <tr>
+    <td>{{this.name}}</td>
+    <td>{{this.time}}</td>
+    <td>{{this.weight}}</td>
+    <td>{{this.date}}</td>
+    <td>{{this.unit}}</td>
+    <td><form><input type="hidden" name="id" value="{{this.id}}">
+      <input type="submit" name="delete" value="Delete Row"> 
+      <input type="submit" name="update" value="Update Row"> </form></td>
+  </tr>
+{{/each}}
+</table>
+
